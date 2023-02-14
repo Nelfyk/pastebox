@@ -7,8 +7,7 @@ import com.ruslanburduzhan.pastebox.service.PasteBoxService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collection;
-import java.util.Collections;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -17,8 +16,8 @@ public class PasteBoxController {
     private final PasteBoxService service;
 
     @GetMapping("/")
-    public Collection<String> getAllPublic() {
-        return Collections.emptyList();
+    public List<PasteBoxResponse> getAllPublic() {
+        return service.getAllPublic();
     }
 
     @GetMapping("/{hash}")
@@ -28,7 +27,7 @@ public class PasteBoxController {
         try{
             response = service.getByHash(hash);
         } catch(RuntimeException e){
-            response = new PasteBoxResponse("not found",false);
+            response = new PasteBoxResponse("not found",false,"not found");
         }
         return response;
     }

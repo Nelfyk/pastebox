@@ -8,4 +8,5 @@ import lombok.RequiredArgsConstructor;
 public class PasteBoxResponse {
     private final String data;
     private final boolean isPublic;
+    private final String hash;
 }

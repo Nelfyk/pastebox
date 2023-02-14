@@ -14,12 +14,12 @@ public class PasteBoxEntity {
     private LocalDateTime lifeTime;
     private String hash;
 
-    public PasteBoxEntity(String data, boolean isPublic/*, LocalDateTime lifeTime*/) {
+    public PasteBoxEntity(String data, boolean isPublic, LocalDateTime lifeTime) {
         this.id = counter;
         this.data = data;
         System.out.println(isPublic);
         this.isPublic = isPublic;
-//        this.lifeTime = lifeTime;
+        this.lifeTime = lifeTime;
         this.hash = generateHash();
         counter++;
     }
