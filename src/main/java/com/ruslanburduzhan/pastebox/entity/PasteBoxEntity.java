@@ -17,7 +17,6 @@ public class PasteBoxEntity {
     public PasteBoxEntity(String data, boolean isPublic, LocalDateTime lifeTime) {
         this.id = counter;
         this.data = data;
-        System.out.println(isPublic);
         this.isPublic = isPublic;
         this.lifeTime = lifeTime;
         this.hash = generateHash();
