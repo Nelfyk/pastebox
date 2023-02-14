@@ -14,6 +14,9 @@ public class PasteBoxEntity {
     private LocalDateTime lifeTime;
     private String hash;
 
+    public PasteBoxEntity() {
+    }
+
     public PasteBoxEntity(String data, boolean isPublic, LocalDateTime lifeTime) {
         this.id = counter;
         this.data = data;
@@ -23,8 +26,8 @@ public class PasteBoxEntity {
         counter++;
     }
 
-    private String generateHash(){
-        return Integer.toHexString(hashCode()+(new Random().nextInt(120)*counter));
+    private String generateHash() {
+        return Integer.toHexString(hashCode() + (new Random().nextInt(120) * counter));
     }
 
 }
