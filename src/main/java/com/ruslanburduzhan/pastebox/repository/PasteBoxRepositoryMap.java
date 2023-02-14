@@ -27,7 +27,7 @@ public class PasteBoxRepositoryMap implements PasteBoxRepository {
         LocalDateTime currentTime = LocalDateTime.now();
         return vault.values().stream()
                 .filter(PasteBoxEntity::isPublic)
-                .filter(e->e.getLifeTime().isAfter(currentTime))
+                .filter(e -> e.getLifeTime().isAfter(currentTime))
                 .sorted(Comparator.comparing(PasteBoxEntity::getId).reversed())
                 .limit(amount)
                 .toList();
@@ -35,6 +35,6 @@ public class PasteBoxRepositoryMap implements PasteBoxRepository {
 
     @Override
     public void add(PasteBoxEntity pasteBoxEntity) {
-        vault.put(pasteBoxEntity.getHash(),pasteBoxEntity);
+        vault.put(pasteBoxEntity.getHash(), pasteBoxEntity);
     }
 }

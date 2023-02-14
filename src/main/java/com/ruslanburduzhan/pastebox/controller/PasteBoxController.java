@@ -24,16 +24,16 @@ public class PasteBoxController {
     public PasteBoxResponse getByHash(@PathVariable String hash) {
 
         PasteBoxResponse response;
-        try{
+        try {
             response = service.getByHash(hash);
-        } catch(RuntimeException e){
-            response = new PasteBoxResponse("not found",false,"not found");
+        } catch (RuntimeException e) {
+            response = new PasteBoxResponse("not found", false, "not found");
         }
         return response;
     }
 
     @PostMapping("/")
-    public PasteBoxUrlResponse addPaste(@RequestBody PasteBoxRequest request){
+    public PasteBoxUrlResponse addPaste(@RequestBody PasteBoxRequest request) {
         return service.addPaste(request);
     }
 

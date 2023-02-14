@@ -7,7 +7,6 @@ import com.ruslanburduzhan.pastebox.api.response.PasteBoxUrlResponse;
 import com.ruslanburduzhan.pastebox.entity.PasteBoxEntity;
 import com.ruslanburduzhan.pastebox.repository.PasteBoxRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -25,7 +24,7 @@ public class PasteBoxServiceImpl implements PasteBoxService {
     @Override
     public PasteBoxResponse getByHash(String hash) {
         PasteBoxEntity entity = repository.getByHash(hash);
-        return new PasteBoxResponse(entity.getData(), entity.isPublic(),hash);
+        return new PasteBoxResponse(entity.getData(), entity.isPublic(), hash);
     }
 
     @Override
@@ -43,6 +42,6 @@ public class PasteBoxServiceImpl implements PasteBoxService {
     }
 
     private List<PasteBoxResponse> entityToPasteBoxResponse(List<PasteBoxEntity> entityList) {
-        return entityList.stream().map(e -> new PasteBoxResponse(e.getData(), e.isPublic(),e.getHash())).toList();
+        return entityList.stream().map(e -> new PasteBoxResponse(e.getData(), e.isPublic(), e.getHash())).toList();
     }
 }
